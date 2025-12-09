@@ -16,15 +16,42 @@ namespace UpperComputer
         }
 
         /// <summary>
-        /// 测试数据库连接
+        /// 测试数据库连接（如果数据库不存在则创建）
         /// </summary>
         public bool TestConnection(out string message)
         {
             try
             {
-                using var conn = new MySqlConnection(connectionString);
-                conn.Open();
-                message = "数据库连接成功!";
+                // 先尝试连接到 MySQL 服务器（不指定数据库）
+                var configWithoutDb = connectionString.Replace("Database=uppercomputer;", "");
+                
+                using (var conn = new MySqlConnection(configWithoutDb))
+                {
+                    conn.Open();
+                    
+                    // 检查数据库是否存在，不存在则创建
+                    var checkDbCmd = new MySqlCommand("SELECT SCHEMA_NAME FROM INFORMATION_SCHEMA.SCHEMATA WHERE SCHEMA_NAME = 'uppercomputer'", conn);
+                    var result = checkDbCmd.ExecuteScalar();
+                    
+                    if (result == null)
+                    {
+                        // 创建数据库
+                        var createDbCmd = new MySqlCommand("CREATE DATABASE uppercomputer CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci", conn);
+                        createDbCmd.ExecuteNonQuery();
+                        message = "数据库连接成功! 已自动创建数据库 'uppercomputer'";
+                    }
+                    else
+                    {
+                        message = "数据库连接成功!";
+                    }
+                }
+                
+                // 再次连接以验证
+                using (var conn = new MySqlConnection(connectionString))
+                {
+                    conn.Open();
+                }
+                
                 return true;
             }
             catch (Exception ex)

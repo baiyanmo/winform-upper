@@ -66,7 +66,13 @@ namespace UpperComputer
                 
                 // 还原原始颜色
                 if (btn == btnConnect)
-                    btn.BackColor = Color.FromArgb(67, 160, 71);
+                {
+                    // 根据连接状态设置颜色
+                    if (serialPort?.IsOpen == true)
+                        btn.BackColor = Color.FromArgb(244, 67, 54); // 已连接显示红色（断开按钮）
+                    else
+                        btn.BackColor = Color.FromArgb(67, 160, 71); // 未连接显示绿色（连接按钮）
+                }
                 else if (btn == btnRefresh)
                     btn.BackColor = Color.FromArgb(66, 133, 244);
                 else if (btn == btnDatabase)
@@ -118,9 +124,17 @@ namespace UpperComputer
                 // 断开连接
                 serialPort.Close();
                 btnConnect.Text = "连接";
+                btnConnect.BackColor = Color.FromArgb(67, 160, 71); // 绿色
                 lblStatus.Text = "状态: 已断开";
                 lblStatus.ForeColor = Color.Red;
-                groupBoxSerialSettings.Enabled = true;
+                
+                // 启用串口设置控件
+                comboSerialPort.Enabled = true;
+                comboBaudRate.Enabled = true;
+                comboDataBits.Enabled = true;
+                comboParity.Enabled = true;
+                comboStopBits.Enabled = true;
+                btnRefresh.Enabled = true;
             }
             else
             {
@@ -142,9 +156,17 @@ namespace UpperComputer
                     serialPort.Open();
 
                     btnConnect.Text = "断开";
+                    btnConnect.BackColor = Color.FromArgb(244, 67, 54); // 红色表示断开
                     lblStatus.Text = "状态: 已连接";
                     lblStatus.ForeColor = Color.Green;
-                    groupBoxSerialSettings.Enabled = false;
+                    
+                    // 禁用串口设置控件，但保持连接按钮可用
+                    comboSerialPort.Enabled = false;
+                    comboBaudRate.Enabled = false;
+                    comboDataBits.Enabled = false;
+                    comboParity.Enabled = false;
+                    comboStopBits.Enabled = false;
+                    btnRefresh.Enabled = false;
                 }
                 catch (Exception ex)
                 {

@@ -16,7 +16,7 @@ namespace UpperComputer
         /// </summary>
         public string GetConnectionString()
         {
-            return $"Server={Server};Port={Port};Database={Database};Uid={Username};Pwd={Password};CharSet=utf8mb4;";
+            return $"Server={Server};Port={Port};Database={Database};Uid={Username};Pwd={Password};CharSet=utf8mb4;AllowPublicKeyRetrieval=True;SslMode=None;";
         }
 
         /// <summary>
