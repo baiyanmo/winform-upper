@@ -98,3 +98,6 @@ A: 使用空格分隔,例如: `AA BB CC 01 02 03`
 ## 许可证
 
 本项目仅供学习参考使用。
+
+## 已将项目从 .NET 6.0 升级到 .NET 8.0,现在可以正常运行了
+dotnet run --project UpperComputer.csproj
