@@ -136,3 +136,12 @@ A: 连接到`uppercomputer`数据库,打开`serial_data`表即可查看所有记
 
 ## 已将项目从 .NET 6.0 升级到 .NET 8.0,现在可以正常运行了
 dotnet run --project UpperComputer.csproj
+
+如果您需要重启服务,可以使用:
+net stop MySQL80
+net start MySQL80
+或者使用 PowerShell 命令:
+Restart-Service MySQL80
+
+查看数据库状态：
+ Get-Service | Where-Object { $_.DisplayName -like '*MySQL*' -or $_.Name -like '*MySQL*' } | Select-Object Name, DisplayName, Status | Format-Table -AutoSize
