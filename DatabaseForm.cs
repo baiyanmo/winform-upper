@@ -6,12 +6,74 @@ namespace UpperComputer
     {
         private DatabaseManager? dbManager;
         private DatabaseConfig config;
+        private System.Windows.Forms.Timer? fadeTimer;
+        private int fadeStep = 0;
 
         public DatabaseForm()
         {
             InitializeComponent();
             config = DatabaseConfig.Default;
             LoadConfig();
+            this.Opacity = 0; // 启动时透明度为0
+        }
+
+        // 窗体加载事件 - 淡入动画
+        private void DatabaseForm_Load(object sender, EventArgs e)
+        {
+            fadeTimer = new System.Windows.Forms.Timer();
+            fadeTimer.Interval = 20;
+            fadeTimer.Tick += FadeIn_Tick;
+            fadeTimer.Start();
+        }
+
+        // 淡入动画效果
+        private void FadeIn_Tick(object? sender, EventArgs e)
+        {
+            fadeStep++;
+            this.Opacity = fadeStep * 0.05;
+            if (this.Opacity >= 1.0)
+            {
+                fadeTimer?.Stop();
+                fadeTimer?.Dispose();
+            }
+        }
+
+        // 按钮悬停效果
+        private void Button_MouseEnter(object? sender, EventArgs e)
+        {
+            if (sender is Button btn)
+            {
+                btn.Font = new Font(btn.Font.FontFamily, btn.Font.Size + 0.5f, btn.Font.Style);
+                
+                Color currentColor = btn.BackColor;
+                int r = Math.Min(255, currentColor.R + 20);
+                int g = Math.Min(255, currentColor.G + 20);
+                int b = Math.Min(255, currentColor.B + 20);
+                btn.BackColor = Color.FromArgb(r, g, b);
+            }
+        }
+
+        // 按钮离开效果
+        private void Button_MouseLeave(object? sender, EventArgs e)
+        {
+            if (sender is Button btn)
+            {
+                btn.Font = new Font(btn.Font.FontFamily, btn.Font.Size - 0.5f, btn.Font.Style);
+                
+                // 还原原始颜色
+                if (btn == btnTestConnection)
+                    btn.BackColor = Color.FromArgb(67, 160, 71);
+                else if (btn == btnInitDatabase)
+                    btn.BackColor = Color.FromArgb(33, 150, 243);
+                else if (btn == btnQueryData)
+                    btn.BackColor = Color.FromArgb(66, 133, 244);
+                else if (btn == btnStatistics)
+                    btn.BackColor = Color.FromArgb(156, 39, 176);
+                else if (btn == btnClearData)
+                    btn.BackColor = Color.FromArgb(244, 67, 54);
+                else if (btn == btnExport)
+                    btn.BackColor = Color.FromArgb(255, 143, 0);
+            }
         }
 
         private void LoadConfig()

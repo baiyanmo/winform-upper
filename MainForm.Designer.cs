@@ -57,6 +57,9 @@ namespace UpperComputer
             this.groupBoxReceive.SuspendLayout();
             this.groupBoxSend.SuspendLayout();
             this.SuspendLayout();
+            
+            // 设置窗体双缓冲以实现平滑动画
+            this.SetStyle(ControlStyles.AllPaintingInWmPaint | ControlStyles.UserPaint | ControlStyles.OptimizedDoubleBuffer, true);
             // 
             // groupBoxSerialSettings
             // 
@@ -80,6 +83,9 @@ namespace UpperComputer
             this.groupBoxSerialSettings.TabIndex = 0;
             this.groupBoxSerialSettings.TabStop = false;
             this.groupBoxSerialSettings.Text = "串口设置";
+            this.groupBoxSerialSettings.BackColor = System.Drawing.Color.FromArgb(250, 250, 252);
+            this.groupBoxSerialSettings.ForeColor = System.Drawing.Color.FromArgb(51, 51, 51);
+            this.groupBoxSerialSettings.Font = new System.Drawing.Font("Microsoft YaHei UI", 9F, System.Drawing.FontStyle.Bold);
             // 
             // btnRefresh
             // 
@@ -88,8 +94,16 @@ namespace UpperComputer
             this.btnRefresh.Size = new System.Drawing.Size(75, 30);
             this.btnRefresh.TabIndex = 11;
             this.btnRefresh.Text = "刷新";
-            this.btnRefresh.UseVisualStyleBackColor = true;
+            this.btnRefresh.UseVisualStyleBackColor = false;
+            this.btnRefresh.BackColor = System.Drawing.Color.FromArgb(66, 133, 244);
+            this.btnRefresh.ForeColor = System.Drawing.Color.White;
+            this.btnRefresh.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnRefresh.FlatAppearance.BorderSize = 0;
+            this.btnRefresh.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnRefresh.Font = new System.Drawing.Font("Microsoft YaHei UI", 9F, System.Drawing.FontStyle.Bold);
             this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
+            this.btnRefresh.MouseEnter += new System.EventHandler(this.Button_MouseEnter);
+            this.btnRefresh.MouseLeave += new System.EventHandler(this.Button_MouseLeave);
             // 
             // btnDatabase
             // 
@@ -98,8 +112,16 @@ namespace UpperComputer
             this.btnDatabase.Size = new System.Drawing.Size(170, 30);
             this.btnDatabase.TabIndex = 12;
             this.btnDatabase.Text = "数据库管理";
-            this.btnDatabase.UseVisualStyleBackColor = true;
+            this.btnDatabase.UseVisualStyleBackColor = false;
+            this.btnDatabase.BackColor = System.Drawing.Color.FromArgb(255, 143, 0);
+            this.btnDatabase.ForeColor = System.Drawing.Color.White;
+            this.btnDatabase.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDatabase.FlatAppearance.BorderSize = 0;
+            this.btnDatabase.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnDatabase.Font = new System.Drawing.Font("Microsoft YaHei UI", 9F, System.Drawing.FontStyle.Bold);
             this.btnDatabase.Click += new System.EventHandler(this.btnDatabase_Click);
+            this.btnDatabase.MouseEnter += new System.EventHandler(this.Button_MouseEnter);
+            this.btnDatabase.MouseLeave += new System.EventHandler(this.Button_MouseLeave);
             // 
             // chkAutoSave
             // 
@@ -119,8 +141,16 @@ namespace UpperComputer
             this.btnConnect.Size = new System.Drawing.Size(75, 30);
             this.btnConnect.TabIndex = 10;
             this.btnConnect.Text = "连接";
-            this.btnConnect.UseVisualStyleBackColor = true;
+            this.btnConnect.UseVisualStyleBackColor = false;
+            this.btnConnect.BackColor = System.Drawing.Color.FromArgb(67, 160, 71);
+            this.btnConnect.ForeColor = System.Drawing.Color.White;
+            this.btnConnect.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnConnect.FlatAppearance.BorderSize = 0;
+            this.btnConnect.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnConnect.Font = new System.Drawing.Font("Microsoft YaHei UI", 9F, System.Drawing.FontStyle.Bold);
             this.btnConnect.Click += new System.EventHandler(this.btnConnect_Click);
+            this.btnConnect.MouseEnter += new System.EventHandler(this.Button_MouseEnter);
+            this.btnConnect.MouseLeave += new System.EventHandler(this.Button_MouseLeave);
             // 
             // comboStopBits
             // 
@@ -246,6 +276,9 @@ namespace UpperComputer
             this.groupBoxReceive.TabIndex = 1;
             this.groupBoxReceive.TabStop = false;
             this.groupBoxReceive.Text = "接收区";
+            this.groupBoxReceive.BackColor = System.Drawing.Color.FromArgb(250, 250, 252);
+            this.groupBoxReceive.ForeColor = System.Drawing.Color.FromArgb(51, 51, 51);
+            this.groupBoxReceive.Font = new System.Drawing.Font("Microsoft YaHei UI", 9F, System.Drawing.FontStyle.Bold);
             // 
             // btnClearReceive
             // 
@@ -254,8 +287,16 @@ namespace UpperComputer
             this.btnClearReceive.Size = new System.Drawing.Size(75, 30);
             this.btnClearReceive.TabIndex = 1;
             this.btnClearReceive.Text = "清空";
-            this.btnClearReceive.UseVisualStyleBackColor = true;
+            this.btnClearReceive.UseVisualStyleBackColor = false;
+            this.btnClearReceive.BackColor = System.Drawing.Color.FromArgb(244, 67, 54);
+            this.btnClearReceive.ForeColor = System.Drawing.Color.White;
+            this.btnClearReceive.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnClearReceive.FlatAppearance.BorderSize = 0;
+            this.btnClearReceive.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnClearReceive.Font = new System.Drawing.Font("Microsoft YaHei UI", 9F, System.Drawing.FontStyle.Bold);
             this.btnClearReceive.Click += new System.EventHandler(this.btnClearReceive_Click);
+            this.btnClearReceive.MouseEnter += new System.EventHandler(this.Button_MouseEnter);
+            this.btnClearReceive.MouseLeave += new System.EventHandler(this.Button_MouseLeave);
             // 
             // txtReceive
             // 
@@ -266,6 +307,10 @@ namespace UpperComputer
             this.txtReceive.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.txtReceive.Size = new System.Drawing.Size(570, 200);
             this.txtReceive.TabIndex = 0;
+            this.txtReceive.BackColor = System.Drawing.Color.FromArgb(245, 248, 250);
+            this.txtReceive.ForeColor = System.Drawing.Color.FromArgb(33, 33, 33);
+            this.txtReceive.Font = new System.Drawing.Font("Consolas", 9F);
+            this.txtReceive.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             // 
             // groupBoxSend
             // 
@@ -280,6 +325,9 @@ namespace UpperComputer
             this.groupBoxSend.TabIndex = 2;
             this.groupBoxSend.TabStop = false;
             this.groupBoxSend.Text = "发送区";
+            this.groupBoxSend.BackColor = System.Drawing.Color.FromArgb(250, 250, 252);
+            this.groupBoxSend.ForeColor = System.Drawing.Color.FromArgb(51, 51, 51);
+            this.groupBoxSend.Font = new System.Drawing.Font("Microsoft YaHei UI", 9F, System.Drawing.FontStyle.Bold);
             // 
             // chkAutoNewLine
             // 
@@ -308,8 +356,16 @@ namespace UpperComputer
             this.btnClearSend.Size = new System.Drawing.Size(75, 30);
             this.btnClearSend.TabIndex = 2;
             this.btnClearSend.Text = "清空";
-            this.btnClearSend.UseVisualStyleBackColor = true;
+            this.btnClearSend.UseVisualStyleBackColor = false;
+            this.btnClearSend.BackColor = System.Drawing.Color.FromArgb(244, 67, 54);
+            this.btnClearSend.ForeColor = System.Drawing.Color.White;
+            this.btnClearSend.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnClearSend.FlatAppearance.BorderSize = 0;
+            this.btnClearSend.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnClearSend.Font = new System.Drawing.Font("Microsoft YaHei UI", 9F, System.Drawing.FontStyle.Bold);
             this.btnClearSend.Click += new System.EventHandler(this.btnClearSend_Click);
+            this.btnClearSend.MouseEnter += new System.EventHandler(this.Button_MouseEnter);
+            this.btnClearSend.MouseLeave += new System.EventHandler(this.Button_MouseLeave);
             // 
             // btnSend
             // 
@@ -318,8 +374,16 @@ namespace UpperComputer
             this.btnSend.Size = new System.Drawing.Size(75, 30);
             this.btnSend.TabIndex = 1;
             this.btnSend.Text = "发送";
-            this.btnSend.UseVisualStyleBackColor = true;
+            this.btnSend.UseVisualStyleBackColor = false;
+            this.btnSend.BackColor = System.Drawing.Color.FromArgb(33, 150, 243);
+            this.btnSend.ForeColor = System.Drawing.Color.White;
+            this.btnSend.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSend.FlatAppearance.BorderSize = 0;
+            this.btnSend.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnSend.Font = new System.Drawing.Font("Microsoft YaHei UI", 9F, System.Drawing.FontStyle.Bold);
             this.btnSend.Click += new System.EventHandler(this.btnSend_Click);
+            this.btnSend.MouseEnter += new System.EventHandler(this.Button_MouseEnter);
+            this.btnSend.MouseLeave += new System.EventHandler(this.Button_MouseLeave);
             // 
             // txtSend
             // 
@@ -329,6 +393,10 @@ namespace UpperComputer
             this.txtSend.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.txtSend.Size = new System.Drawing.Size(570, 100);
             this.txtSend.TabIndex = 0;
+            this.txtSend.BackColor = System.Drawing.Color.White;
+            this.txtSend.ForeColor = System.Drawing.Color.FromArgb(33, 33, 33);
+            this.txtSend.Font = new System.Drawing.Font("Consolas", 9F);
+            this.txtSend.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             // 
             // lblStatus
             // 
@@ -354,7 +422,10 @@ namespace UpperComputer
             this.MaximizeBox = false;
             this.Name = "MainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "串口上位机";
+            this.Text = "串口上位机 - Modern UI";
+            this.BackColor = System.Drawing.Color.FromArgb(236, 239, 241);
+            this.Font = new System.Drawing.Font("Microsoft YaHei UI", 9F);
+            this.Load += new System.EventHandler(this.MainForm_Load);
             this.groupBoxSerialSettings.ResumeLayout(false);
             this.groupBoxSerialSettings.PerformLayout();
             this.groupBoxReceive.ResumeLayout(false);

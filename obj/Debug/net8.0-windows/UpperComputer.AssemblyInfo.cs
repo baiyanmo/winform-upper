@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("UpperComputer")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+011606c8c940ee78e5ad05400562cbc7dbca8fae")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+a21aaeb3eb628caee0e30b793908daf9db3b8b26")]
 [assembly: System.Reflection.AssemblyProductAttribute("UpperComputer")]
 [assembly: System.Reflection.AssemblyTitleAttribute("UpperComputer")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

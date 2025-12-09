@@ -46,6 +46,9 @@ namespace UpperComputer
             ((System.ComponentModel.ISupportInitialize)(this.numLimit)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvData)).BeginInit();
             this.SuspendLayout();
+            
+            // 设置窗体双缓冲
+            this.SetStyle(ControlStyles.AllPaintingInWmPaint | ControlStyles.UserPaint | ControlStyles.OptimizedDoubleBuffer, true);
             // 
             // groupBoxConnection
             // 
@@ -67,6 +70,9 @@ namespace UpperComputer
             this.groupBoxConnection.TabIndex = 0;
             this.groupBoxConnection.TabStop = false;
             this.groupBoxConnection.Text = "数据库连接";
+            this.groupBoxConnection.BackColor = System.Drawing.Color.FromArgb(250, 250, 252);
+            this.groupBoxConnection.ForeColor = System.Drawing.Color.FromArgb(51, 51, 51);
+            this.groupBoxConnection.Font = new System.Drawing.Font("Microsoft YaHei UI", 9F, System.Drawing.FontStyle.Bold);
             // 
             // btnTestConnection
             // 
@@ -75,8 +81,16 @@ namespace UpperComputer
             this.btnTestConnection.Size = new System.Drawing.Size(120, 35);
             this.btnTestConnection.TabIndex = 11;
             this.btnTestConnection.Text = "测试连接";
-            this.btnTestConnection.UseVisualStyleBackColor = true;
+            this.btnTestConnection.UseVisualStyleBackColor = false;
+            this.btnTestConnection.BackColor = System.Drawing.Color.FromArgb(67, 160, 71);
+            this.btnTestConnection.ForeColor = System.Drawing.Color.White;
+            this.btnTestConnection.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnTestConnection.FlatAppearance.BorderSize = 0;
+            this.btnTestConnection.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnTestConnection.Font = new System.Drawing.Font("Microsoft YaHei UI", 9F, System.Drawing.FontStyle.Bold);
             this.btnTestConnection.Click += new System.EventHandler(this.btnTestConnection_Click);
+            this.btnTestConnection.MouseEnter += new System.EventHandler(this.Button_MouseEnter);
+            this.btnTestConnection.MouseLeave += new System.EventHandler(this.Button_MouseLeave);
             // 
             // btnInitDatabase
             // 
@@ -85,8 +99,16 @@ namespace UpperComputer
             this.btnInitDatabase.Size = new System.Drawing.Size(120, 35);
             this.btnInitDatabase.TabIndex = 10;
             this.btnInitDatabase.Text = "初始化数据库";
-            this.btnInitDatabase.UseVisualStyleBackColor = true;
+            this.btnInitDatabase.UseVisualStyleBackColor = false;
+            this.btnInitDatabase.BackColor = System.Drawing.Color.FromArgb(33, 150, 243);
+            this.btnInitDatabase.ForeColor = System.Drawing.Color.White;
+            this.btnInitDatabase.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnInitDatabase.FlatAppearance.BorderSize = 0;
+            this.btnInitDatabase.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnInitDatabase.Font = new System.Drawing.Font("Microsoft YaHei UI", 9F, System.Drawing.FontStyle.Bold);
             this.btnInitDatabase.Click += new System.EventHandler(this.btnInitDatabase_Click);
+            this.btnInitDatabase.MouseEnter += new System.EventHandler(this.Button_MouseEnter);
+            this.btnInitDatabase.MouseLeave += new System.EventHandler(this.Button_MouseLeave);
             // 
             // txtPassword
             // 
@@ -187,6 +209,9 @@ namespace UpperComputer
             this.groupBoxQuery.TabIndex = 1;
             this.groupBoxQuery.TabStop = false;
             this.groupBoxQuery.Text = "数据查询";
+            this.groupBoxQuery.BackColor = System.Drawing.Color.FromArgb(250, 250, 252);
+            this.groupBoxQuery.ForeColor = System.Drawing.Color.FromArgb(51, 51, 51);
+            this.groupBoxQuery.Font = new System.Drawing.Font("Microsoft YaHei UI", 9F, System.Drawing.FontStyle.Bold);
             // 
             // btnExport
             // 
@@ -195,8 +220,16 @@ namespace UpperComputer
             this.btnExport.Size = new System.Drawing.Size(120, 35);
             this.btnExport.TabIndex = 9;
             this.btnExport.Text = "导出数据";
-            this.btnExport.UseVisualStyleBackColor = true;
+            this.btnExport.UseVisualStyleBackColor = false;
+            this.btnExport.BackColor = System.Drawing.Color.FromArgb(255, 143, 0);
+            this.btnExport.ForeColor = System.Drawing.Color.White;
+            this.btnExport.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnExport.FlatAppearance.BorderSize = 0;
+            this.btnExport.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnExport.Font = new System.Drawing.Font("Microsoft YaHei UI", 9F, System.Drawing.FontStyle.Bold);
             this.btnExport.Click += new System.EventHandler(this.btnExport_Click);
+            this.btnExport.MouseEnter += new System.EventHandler(this.Button_MouseEnter);
+            this.btnExport.MouseLeave += new System.EventHandler(this.Button_MouseLeave);
             // 
             // btnClearData
             // 
@@ -205,8 +238,16 @@ namespace UpperComputer
             this.btnClearData.Size = new System.Drawing.Size(120, 35);
             this.btnClearData.TabIndex = 8;
             this.btnClearData.Text = "清空数据";
-            this.btnClearData.UseVisualStyleBackColor = true;
+            this.btnClearData.UseVisualStyleBackColor = false;
+            this.btnClearData.BackColor = System.Drawing.Color.FromArgb(244, 67, 54);
+            this.btnClearData.ForeColor = System.Drawing.Color.White;
+            this.btnClearData.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnClearData.FlatAppearance.BorderSize = 0;
+            this.btnClearData.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnClearData.Font = new System.Drawing.Font("Microsoft YaHei UI", 9F, System.Drawing.FontStyle.Bold);
             this.btnClearData.Click += new System.EventHandler(this.btnClearData_Click);
+            this.btnClearData.MouseEnter += new System.EventHandler(this.Button_MouseEnter);
+            this.btnClearData.MouseLeave += new System.EventHandler(this.Button_MouseLeave);
             // 
             // btnStatistics
             // 
@@ -215,8 +256,16 @@ namespace UpperComputer
             this.btnStatistics.Size = new System.Drawing.Size(120, 35);
             this.btnStatistics.TabIndex = 7;
             this.btnStatistics.Text = "数据统计";
-            this.btnStatistics.UseVisualStyleBackColor = true;
+            this.btnStatistics.UseVisualStyleBackColor = false;
+            this.btnStatistics.BackColor = System.Drawing.Color.FromArgb(156, 39, 176);
+            this.btnStatistics.ForeColor = System.Drawing.Color.White;
+            this.btnStatistics.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnStatistics.FlatAppearance.BorderSize = 0;
+            this.btnStatistics.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnStatistics.Font = new System.Drawing.Font("Microsoft YaHei UI", 9F, System.Drawing.FontStyle.Bold);
             this.btnStatistics.Click += new System.EventHandler(this.btnStatistics_Click);
+            this.btnStatistics.MouseEnter += new System.EventHandler(this.Button_MouseEnter);
+            this.btnStatistics.MouseLeave += new System.EventHandler(this.Button_MouseLeave);
             // 
             // btnQueryData
             // 
@@ -225,8 +274,16 @@ namespace UpperComputer
             this.btnQueryData.Size = new System.Drawing.Size(120, 35);
             this.btnQueryData.TabIndex = 6;
             this.btnQueryData.Text = "查询数据";
-            this.btnQueryData.UseVisualStyleBackColor = true;
+            this.btnQueryData.UseVisualStyleBackColor = false;
+            this.btnQueryData.BackColor = System.Drawing.Color.FromArgb(66, 133, 244);
+            this.btnQueryData.ForeColor = System.Drawing.Color.White;
+            this.btnQueryData.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnQueryData.FlatAppearance.BorderSize = 0;
+            this.btnQueryData.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnQueryData.Font = new System.Drawing.Font("Microsoft YaHei UI", 9F, System.Drawing.FontStyle.Bold);
             this.btnQueryData.Click += new System.EventHandler(this.btnQueryData_Click);
+            this.btnQueryData.MouseEnter += new System.EventHandler(this.Button_MouseEnter);
+            this.btnQueryData.MouseLeave += new System.EventHandler(this.Button_MouseLeave);
             // 
             // numLimit
             // 
@@ -312,6 +369,13 @@ namespace UpperComputer
             this.dgvData.RowTemplate.Height = 25;
             this.dgvData.Size = new System.Drawing.Size(652, 538);
             this.dgvData.TabIndex = 2;
+            this.dgvData.BackgroundColor = System.Drawing.Color.White;
+            this.dgvData.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dgvData.ColumnHeadersDefaultCellStyle.BackColor = System.Drawing.Color.FromArgb(63, 81, 181);
+            this.dgvData.ColumnHeadersDefaultCellStyle.ForeColor = System.Drawing.Color.White;
+            this.dgvData.ColumnHeadersDefaultCellStyle.Font = new System.Drawing.Font("Microsoft YaHei UI", 9F, System.Drawing.FontStyle.Bold);
+            this.dgvData.AlternatingRowsDefaultCellStyle.BackColor = System.Drawing.Color.FromArgb(245, 245, 250);
+            this.dgvData.EnableHeadersVisualStyles = false;
             // 
             // lblStatus
             // 
@@ -337,7 +401,10 @@ namespace UpperComputer
             this.MaximizeBox = false;
             this.Name = "DatabaseForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "数据库管理";
+            this.Text = "数据库管理 - Modern UI";
+            this.BackColor = System.Drawing.Color.FromArgb(236, 239, 241);
+            this.Font = new System.Drawing.Font("Microsoft YaHei UI", 9F);
+            this.Load += new System.EventHandler(this.DatabaseForm_Load);
             this.groupBoxConnection.ResumeLayout(false);
             this.groupBoxConnection.PerformLayout();
             this.groupBoxQuery.ResumeLayout(false);

@@ -9,12 +9,73 @@ namespace UpperComputer
         private StringBuilder receiveBuffer = new StringBuilder();
         private DatabaseManager? dbManager;
         private bool autoSaveToDatabase = false;
+        private System.Windows.Forms.Timer? fadeTimer;
+        private int fadeStep = 0;
 
         public MainForm()
         {
             InitializeComponent();
             InitializeSerialPort();
             InitializeDatabase();
+            this.Opacity = 0; // 启动时透明度为0，用于淡入动画
+        }
+
+        // 窗体加载事件 - 淡入动画
+        private void MainForm_Load(object sender, EventArgs e)
+        {
+            fadeTimer = new System.Windows.Forms.Timer();
+            fadeTimer.Interval = 20;
+            fadeTimer.Tick += FadeIn_Tick;
+            fadeTimer.Start();
+        }
+
+        // 淡入动画效果
+        private void FadeIn_Tick(object? sender, EventArgs e)
+        {
+            fadeStep++;
+            this.Opacity = fadeStep * 0.05;
+            if (this.Opacity >= 1.0)
+            {
+                fadeTimer?.Stop();
+                fadeTimer?.Dispose();
+            }
+        }
+
+        // 按钮悬停效果 - 放大
+        private void Button_MouseEnter(object? sender, EventArgs e)
+        {
+            if (sender is Button btn)
+            {
+                btn.Font = new Font(btn.Font.FontFamily, btn.Font.Size + 0.5f, btn.Font.Style);
+                
+                // 根据按钮当前颜色加亮
+                Color currentColor = btn.BackColor;
+                int r = Math.Min(255, currentColor.R + 20);
+                int g = Math.Min(255, currentColor.G + 20);
+                int b = Math.Min(255, currentColor.B + 20);
+                btn.BackColor = Color.FromArgb(r, g, b);
+            }
+        }
+
+        // 按钮离开效果 - 还原
+        private void Button_MouseLeave(object? sender, EventArgs e)
+        {
+            if (sender is Button btn)
+            {
+                btn.Font = new Font(btn.Font.FontFamily, btn.Font.Size - 0.5f, btn.Font.Style);
+                
+                // 还原原始颜色
+                if (btn == btnConnect)
+                    btn.BackColor = Color.FromArgb(67, 160, 71);
+                else if (btn == btnRefresh)
+                    btn.BackColor = Color.FromArgb(66, 133, 244);
+                else if (btn == btnDatabase)
+                    btn.BackColor = Color.FromArgb(255, 143, 0);
+                else if (btn == btnSend)
+                    btn.BackColor = Color.FromArgb(33, 150, 243);
+                else if (btn == btnClearReceive || btn == btnClearSend)
+                    btn.BackColor = Color.FromArgb(244, 67, 54);
+            }
         }
 
         private void InitializeSerialPort()

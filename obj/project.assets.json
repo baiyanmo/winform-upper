@@ -1836,11 +1836,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "B:\\winform\\UpperComputer.csproj",
+      "projectUniqueName": "B:\\UI\\winform\\UpperComputer.csproj",
       "projectName": "UpperComputer",
-      "projectPath": "B:\\winform\\UpperComputer.csproj",
+      "projectPath": "B:\\UI\\winform\\UpperComputer.csproj",
       "packagesPath": "C:\\Users\\86183\\.nuget\\packages\\",
-      "outputPath": "B:\\winform\\obj\\",
+      "outputPath": "B:\\UI\\winform\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\86183\\AppData\\Roaming\\NuGet\\NuGet.Config"

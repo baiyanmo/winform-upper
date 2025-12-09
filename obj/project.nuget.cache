@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "TGcKrDPERz0=",
+  "dgSpecHash": "7tLnH+aRiXg=",
   "success": true,
-  "projectFilePath": "B:\\winform\\UpperComputer.csproj",
+  "projectFilePath": "B:\\UI\\winform\\UpperComputer.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\86183\\.nuget\\packages\\bouncycastle.cryptography\\2.3.1\\bouncycastle.cryptography.2.3.1.nupkg.sha512",
     "C:\\Users\\86183\\.nuget\\packages\\google.protobuf\\3.26.1\\google.protobuf.3.26.1.nupkg.sha512",
