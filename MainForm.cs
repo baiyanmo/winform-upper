@@ -7,11 +7,14 @@ namespace UpperComputer
     {
         private SerialPort? serialPort;
         private StringBuilder receiveBuffer = new StringBuilder();
+        private DatabaseManager? dbManager;
+        private bool autoSaveToDatabase = false;
 
         public MainForm()
         {
             InitializeComponent();
             InitializeSerialPort();
+            InitializeDatabase();
         }
 
         private void InitializeSerialPort()
@@ -24,6 +27,13 @@ namespace UpperComputer
             comboDataBits.SelectedIndex = 3; // 8
             comboParity.SelectedIndex = 0;   // None
             comboStopBits.SelectedIndex = 1; // One
+        }
+
+        private void InitializeDatabase()
+        {
+            // 默认数据库配置
+            var config = DatabaseConfig.Default;
+            dbManager = new DatabaseManager(config);
         }
 
         private void RefreshSerialPorts()
@@ -95,6 +105,12 @@ namespace UpperComputer
                         // 自动滚动到底部
                         txtReceive.SelectionStart = txtReceive.Text.Length;
                         txtReceive.ScrollToCaret();
+
+                        // 保存到数据库
+                        if (autoSaveToDatabase && dbManager != null && !string.IsNullOrWhiteSpace(data))
+                        {
+                            dbManager.InsertSerialData(data, serialPort.PortName, out _);
+                        }
                     }));
                 }
             }
@@ -151,6 +167,31 @@ namespace UpperComputer
         private void btnClearSend_Click(object sender, EventArgs e)
         {
             txtSend.Clear();
+        }
+
+        private void btnDatabase_Click(object sender, EventArgs e)
+        {
+            using var dbForm = new DatabaseForm();
+            dbForm.ShowDialog();
+            
+            // 获取更新后的数据库管理器
+            var newDbManager = dbForm.GetDatabaseManager();
+            if (newDbManager != null)
+            {
+                dbManager = newDbManager;
+            }
+        }
+
+        private void chkAutoSave_CheckedChanged(object sender, EventArgs e)
+        {
+            autoSaveToDatabase = chkAutoSave.Checked;
+            
+            if (autoSaveToDatabase && dbManager == null)
+            {
+                MessageBox.Show("请先配置并测试数据库连接!", "提示", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                chkAutoSave.Checked = false;
+                autoSaveToDatabase = false;
+            }
         }
 
         protected override void OnFormClosing(FormClosingEventArgs e)

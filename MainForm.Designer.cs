@@ -51,6 +51,8 @@ namespace UpperComputer
             this.btnSend = new System.Windows.Forms.Button();
             this.txtSend = new System.Windows.Forms.TextBox();
             this.lblStatus = new System.Windows.Forms.Label();
+            this.btnDatabase = new System.Windows.Forms.Button();
+            this.chkAutoSave = new System.Windows.Forms.CheckBox();
             this.groupBoxSerialSettings.SuspendLayout();
             this.groupBoxReceive.SuspendLayout();
             this.groupBoxSend.SuspendLayout();
@@ -58,6 +60,8 @@ namespace UpperComputer
             // 
             // groupBoxSerialSettings
             // 
+            this.groupBoxSerialSettings.Controls.Add(this.chkAutoSave);
+            this.groupBoxSerialSettings.Controls.Add(this.btnDatabase);
             this.groupBoxSerialSettings.Controls.Add(this.btnRefresh);
             this.groupBoxSerialSettings.Controls.Add(this.btnConnect);
             this.groupBoxSerialSettings.Controls.Add(this.comboStopBits);
@@ -72,7 +76,7 @@ namespace UpperComputer
             this.groupBoxSerialSettings.Controls.Add(this.label1);
             this.groupBoxSerialSettings.Location = new System.Drawing.Point(12, 12);
             this.groupBoxSerialSettings.Name = "groupBoxSerialSettings";
-            this.groupBoxSerialSettings.Size = new System.Drawing.Size(200, 280);
+            this.groupBoxSerialSettings.Size = new System.Drawing.Size(200, 390);
             this.groupBoxSerialSettings.TabIndex = 0;
             this.groupBoxSerialSettings.TabStop = false;
             this.groupBoxSerialSettings.Text = "串口设置";
@@ -86,6 +90,27 @@ namespace UpperComputer
             this.btnRefresh.Text = "刷新";
             this.btnRefresh.UseVisualStyleBackColor = true;
             this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
+            // 
+            // btnDatabase
+            // 
+            this.btnDatabase.Location = new System.Drawing.Point(15, 345);
+            this.btnDatabase.Name = "btnDatabase";
+            this.btnDatabase.Size = new System.Drawing.Size(170, 30);
+            this.btnDatabase.TabIndex = 12;
+            this.btnDatabase.Text = "数据库管理";
+            this.btnDatabase.UseVisualStyleBackColor = true;
+            this.btnDatabase.Click += new System.EventHandler(this.btnDatabase_Click);
+            // 
+            // chkAutoSave
+            // 
+            this.chkAutoSave.AutoSize = true;
+            this.chkAutoSave.Location = new System.Drawing.Point(15, 315);
+            this.chkAutoSave.Name = "chkAutoSave";
+            this.chkAutoSave.Size = new System.Drawing.Size(135, 21);
+            this.chkAutoSave.TabIndex = 13;
+            this.chkAutoSave.Text = "自动保存到数据库";
+            this.chkAutoSave.UseVisualStyleBackColor = true;
+            this.chkAutoSave.CheckedChanged += new System.EventHandler(this.chkAutoSave_CheckedChanged);
             // 
             // btnConnect
             // 
@@ -310,7 +335,7 @@ namespace UpperComputer
             this.lblStatus.AutoSize = true;
             this.lblStatus.Font = new System.Drawing.Font("Microsoft YaHei UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.lblStatus.ForeColor = System.Drawing.Color.Red;
-            this.lblStatus.Location = new System.Drawing.Point(12, 310);
+            this.lblStatus.Location = new System.Drawing.Point(12, 420);
             this.lblStatus.Name = "lblStatus";
             this.lblStatus.Size = new System.Drawing.Size(102, 19);
             this.lblStatus.TabIndex = 3;
@@ -367,5 +392,7 @@ namespace UpperComputer
         private CheckBox chkHexSend;
         private CheckBox chkAutoNewLine;
         private Label lblStatus;
+        private Button btnDatabase;
+        private CheckBox chkAutoSave;
     }
 }
