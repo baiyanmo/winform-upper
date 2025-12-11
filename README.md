@@ -145,3 +145,7 @@ Restart-Service MySQL80
 
 查看数据库状态：
  Get-Service | Where-Object { $_.DisplayName -like '*MySQL*' -or $_.Name -like '*MySQL*' } | Select-Object Name, DisplayName, Status | Format-Table -AutoSize
+
+生成文件
+dotnet new winforms -n student -f net8.0
+dotnet publish -c Release -r win-x64 --self-contained false -o ./publish
